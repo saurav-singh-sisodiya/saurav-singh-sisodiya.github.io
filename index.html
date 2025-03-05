@@ -116,18 +116,46 @@
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         transition: transform 0.3s ease;
-        background-color: var(--card-bg-color, #fff);
+        background-color: #fff;
+        color: #333;
     }
 
     .project-card:hover {
         transform: translateY(-5px);
     }
 
-    .tech-stack {
+    .project-card h4 {
+        color: #4DB8FF;
+    }
+
+    .project-card h5 {
+        color: #4DB8FF;
         margin-top: 15px;
     }
 
-    .badge {
+    /* Dark mode styles */
+    @media (prefers-color-scheme: dark) {
+        .project-card {
+            background-color: #2d2d2d;
+            color: #fff;
+        }
+        
+        .project-card h4 {
+            color: #4DB8FF;
+        }
+        
+        .project-card h5 {
+            color: #4DB8FF;
+        }
+    }
+
+    /* Ensure text is always visible */
+    .project-card .card-text,
+    .project-card ul li {
+        color: inherit;
+    }
+
+    .tech-stack .badge {
         background-color: #4DB8FF;
         color: white;
         padding: 5px 10px;
@@ -136,8 +164,7 @@
         display: inline-block;
     }
 
-    .project-card h5 {
-        color: #4DB8FF;
+    .tech-stack {
         margin-top: 15px;
     }
 
@@ -147,26 +174,6 @@
 
     .project-card li {
         margin-bottom: 5px;
-    }
-
-    /* Dark mode support */
-    body.dark-mode .project-card {
-        background-color: #2d2d2d;
-        color: #fff;
-    }
-
-    body.dark-mode .project-card h4 {
-        color: #4DB8FF;
-    }
-
-    :root {
-        --card-bg-color: #fff;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --card-bg-color: #2d2d2d;
-        }
     }
 
     /* Fixed Navigation Styles */
