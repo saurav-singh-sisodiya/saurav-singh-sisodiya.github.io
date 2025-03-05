@@ -104,10 +104,155 @@
                 </a>
                 <h5>Microsoft Certified: Azure Data Engineer Associate <a target="_blank" rel="noreferrer noopener" href="https://learn.microsoft.com/api/credentials/share/en-us/atanu/27538DCCA8FA84B5?sharingId=A87C04B3CA060F73">&#10004;</a></h5>
             </div>
-           
         </div>
     </div>
 </section>
+
+
+<style>
+    /* Project Cards Styling */
+    .project-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        background-color: var(--card-bg-color, #fff);
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .tech-stack {
+        margin-top: 15px;
+    }
+
+    .badge {
+        background-color: #4DB8FF;
+        color: white;
+        padding: 5px 10px;
+        margin: 3px;
+        border-radius: 15px;
+        display: inline-block;
+    }
+
+    .project-card h5 {
+        color: #4DB8FF;
+        margin-top: 15px;
+    }
+
+    .project-card ul {
+        padding-left: 20px;
+    }
+
+    .project-card li {
+        margin-bottom: 5px;
+    }
+
+    /* Dark mode support */
+    body.dark-mode .project-card {
+        background-color: #2d2d2d;
+        color: #fff;
+    }
+
+    body.dark-mode .project-card h4 {
+        color: #4DB8FF;
+    }
+
+    :root {
+        --card-bg-color: #fff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --card-bg-color: #2d2d2d;
+        }
+    }
+
+    /* Fixed Navigation Styles */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: var(--nav-bg-color, rgba(255, 255, 255, 0.95));
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 15px 0;
+    }
+
+    /* Adjust content to account for fixed navbar */
+    .about {
+        padding-top: 80px; /* Height of navbar + some padding */
+    }
+
+    /* Dark mode support for navbar */
+    body.dark-mode .navbar {
+        --nav-bg-color: rgba(45, 45, 45, 0.95);
+    }
+
+    /* Active link style */
+    .navbar .nav-link.active span {
+        color: #4DB8FF;
+    }
+
+    .navbar .nav-link span {
+        position: relative;
+        color: var(--text-color, #333);
+    }
+
+    body.dark-mode .navbar .nav-link span {
+        --text-color: #fff;
+    }
+
+    .navbar .nav-link span:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #4DB8FF;
+        transition: width 0.3s ease;
+    }
+
+    .navbar .nav-link:hover span:after {
+        width: 100%;
+    }
+
+    /* Project Detail Page Styles */
+    .project-detail {
+        padding: 40px 0;
+    }
+
+    .project-detail-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .project-detail-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .project-detail-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 30px;
+    }
+
+    .project-detail-tech {
+        margin: 20px 0;
+    }
+
+    .project-card {
+        cursor: pointer;
+    }
+</style>
 
 <!-- SKILLS -->
 <!-- SKILLS -->
@@ -342,6 +487,7 @@
     </div>
 </section>
 
+
 <!-- CSS to Control Image Sizes -->
 <style>
     .skill-img {
@@ -449,7 +595,88 @@
 			</div>
 		</div>
 	</section>
+<!-- PROJECTS -->
+<section class="project py-5" id="project">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2>Projects</h2>
+            <p class="lead">Key projects I've worked on as a Data Engineer</p>
+        </div>
 
+        <div class="row">
+            <!-- Project 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 project-card" onclick="window.open('projects/cloud-migration.html', '_blank')">
+                    <div class="card-body">
+                        <h4 class="card-title">Cloud Data Migration Project</h4>
+                        <p class="card-text">Led the successful migration of enterprise data from AWS to GCP with 95% accuracy. Implemented robust data validation and reconciliation processes.</p>
+                        <h5>Key Achievements:</h5>
+                        <ul>
+                            <li>Designed and implemented ETL pipelines using Airflow</li>
+                            <li>Optimized data transfer processes reducing migration time by 40%</li>
+                            <li>Implemented data quality checks and validation frameworks</li>
+                        </ul>
+                        <h5>Technologies Used:</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Apache Airflow</span>
+                            <span class="badge">Google BigQuery</span>
+                            <span class="badge">Python</span>
+                            <span class="badge">SQL</span>
+                            <span class="badge">Impala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 project-card" onclick="window.open('projects/real-time-processing.html', '_blank')">
+                    <div class="card-body">
+                        <h4 class="card-title">Real-time Data Processing Pipeline</h4>
+                        <p class="card-text">Architected and implemented real-time data processing solution using Azure services to handle diverse data formats from multiple sources.</p>
+                        <h5>Key Achievements:</h5>
+                        <ul>
+                            <li>Built scalable data pipelines processing 1M+ events daily</li>
+                            <li>Reduced data processing latency by 60%</li>
+                            <li>Implemented automated data quality monitoring</li>
+                        </ul>
+                        <h5>Technologies Used:</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Azure Event Hub</span>
+                            <span class="badge">Azure Databricks</span>
+                            <span class="badge">Azure Data Factory</span>
+                            <span class="badge">Python</span>
+                            <span class="badge">Scala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 project-card" onclick="window.open('projects/data-warehouse.html', '_blank')">
+                    <div class="card-body">
+                        <h4 class="card-title">Data Warehouse Optimization</h4>
+                        <p class="card-text">Optimized enterprise data warehouse performance and implemented automated data transformation processes.</p>
+                        <h5>Key Achievements:</h5>
+                        <ul>
+                            <li>Improved query performance by 70%</li>
+                            <li>Implemented automated data partitioning strategy</li>
+                            <li>Developed custom data quality framework</li>
+                        </ul>
+                        <h5>Technologies Used:</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Azure Synapse Analytics</span>
+                            <span class="badge">SQL</span>
+                            <span class="badge">Azure Data Factory</span>
+                            <span class="badge">Power BI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 	<section class="resume d-lg-flex justify-content-center align-items-center" id="worklinks">
 		<div class="container">
 			<!-- <h3 class="mb-4">Things i have done as Data Engineer (<span id="date_difference_details"></span> Yrs +) @ <a target="about:blank" rel="noreferrer noopener" href="https://www.Cognizant.com/">Cognizant</a>,</h3> -->

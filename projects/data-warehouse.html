@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Warehouse Optimization - Saurav</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/unicons.css">
+    <!-- Project Detail Specific CSS -->
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --card-bg: #f8f9fa;
+            --border-color: #dee2e6;
+            --heading-color: #4DB8FF;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --card-bg: #2d2d2d;
+            --border-color: #404040;
+            --heading-color: #4DB8FF;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .project-header {
+            padding: 100px 0 60px;
+            text-align: center;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .project-title {
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .project-section {
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .tech-badge {
+            background-color: #4DB8FF;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(77,184,255,0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-switch:hover {
+            transform: rotate(180deg);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background-color: var(--heading-color);
+            color: white;
+            text-decoration: none;
+            transform: translateX(-5px);
+        }
+
+        h2 {
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        h3 {
+            color: var(--heading-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .lead {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .lead {
+                font-size: 1.2rem;
+            }
+
+            .project-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-button">← Back to Portfolio</a>
+    <button class="theme-switch" onclick="toggleTheme()">🌓</button>
+
+    <div class="project-header">
+        <div class="container">
+            <h1 class="project-title">Data Warehouse Optimization</h1>
+            <p class="lead">Enterprise data warehouse performance optimization achieving 70% faster queries</p>
+        </div>
+    </div>
+
+    <div class="project-content">
+        <div class="project-section">
+            <div class="project-card">
+                <h2>Project Overview</h2>
+                <p>Led the optimization of an enterprise data warehouse to improve performance, implement automated data transformation processes, and enhance data quality. The project focused on modernizing the data warehouse architecture while ensuring minimal disruption to business operations.</p>
+                
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>Improved query performance by 70% through optimization</li>
+                    <li>Implemented automated data partitioning strategy</li>
+                    <li>Developed comprehensive data quality framework</li>
+                    <li>Reduced storage costs by 40%</li>
+                    <li>Automated 80% of ETL processes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <div class="project-card">
+                <h2>Technical Implementation</h2>
+                <h3>Technologies Used</h3>
+                <div class="tech-stack">
+                    <span class="tech-badge">Azure Synapse Analytics</span>
+                    <span class="tech-badge">SQL</span>
+                    <span class="tech-badge">Azure Data Factory</span>
+                    <span class="tech-badge">Power BI</span>
+                    <span class="tech-badge">Python</span>
+                </div>
+                
+                <h3 class="mt-4">Architecture Highlights</h3>
+                <ul>
+                    <li>Implemented columnar storage and partitioning strategies</li>
+                    <li>Developed automated data quality checks and validation</li>
+                    <li>Created optimized materialized views for common queries</li>
+                    <li>Implemented incremental data loading patterns</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <div class="project-card">
+                <h2>Challenges & Solutions</h2>
+                <ul>
+                    <li><strong>Challenge:</strong> Poor query performance on large datasets
+                        <br><strong>Solution:</strong> Implemented optimized indexing and partitioning strategies
+                    </li>
+                    <li><strong>Challenge:</strong> Manual data quality checks
+                        <br><strong>Solution:</strong> Developed automated data quality framework with real-time monitoring
+                    </li>
+                    <li><strong>Challenge:</strong> High storage costs
+                        <br><strong>Solution:</strong> Implemented data archival and compression strategies
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <div class="project-card">
+                <h2>Results & Impact</h2>
+                <ul>
+                    <li>70% improvement in query performance</li>
+                    <li>40% reduction in storage costs</li>
+                    <li>80% automation of ETL processes</li>
+                    <li>99% data quality accuracy achieved</li>
+                    <li>Improved business reporting capabilities</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Set initial theme based on localStorage or system preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                if (savedTheme === 'dark') {
+                    document.body.setAttribute('data-theme', 'dark');
+                }
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html> 
