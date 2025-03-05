@@ -272,8 +272,8 @@
                 <a href="https://www.python.org/" target="_blank">
                     <img class="skill-img" src="img/skills/AZURE (2).webp" alt="Azure">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 80%">
+                        <div class="skill-progress" data-progress="80">
+                            <div class="progress-bar">
                                 <span class="progress-text">80%</span>
                             </div>
                         </div>
@@ -285,8 +285,8 @@
                 <a href="https://www.java.com/en/" target="_blank">
                     <img class="skill-img" src="img/skills/Azure-Synapse-Analytics.svg" alt="Synapse">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 80%">
+                        <div class="skill-progress" data-progress="80">
+                            <div class="progress-bar">
                                 <span class="progress-text">80%</span>
                             </div>
                         </div>
@@ -298,8 +298,8 @@
                 <a href="https://www.djangoproject.com/" target="_blank">
                     <img class="skill-img" src="img/skills/Data-Factory.png" alt="ADF">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 75%">
+                        <div class="skill-progress" data-progress="75">
+                            <div class="progress-bar">
                                 <span class="progress-text">90%</span>
                             </div>
                         </div>
@@ -311,8 +311,8 @@
                 <a href="https://flask.palletsprojects.com/en/2.2.x/" target="_blank">
                     <img class="skill-img" src="img/skills/SQL-Data-Warehouses.png" alt="Sql warehouse">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 85%">
+                        <div class="skill-progress" data-progress="85">
+                            <div class="progress-bar">
                                 <span class="progress-text">85%</span>
                             </div>
                         </div>
@@ -324,8 +324,8 @@
                 <a href="#">
                     <img class="skill-img" src="img/skills/Logic-Apps.svg" alt="React">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 70%">
+                        <div class="skill-progress" data-progress="70">
+                            <div class="progress-bar">
                                 <span class="progress-text">90%</span>
                             </div>
                         </div>
@@ -337,8 +337,8 @@
                 <a href="#">
                     <img class="skill-img" src="img/skills/azure-databricks5940.jpg" alt="JavaScript">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 85%">
+                        <div class="skill-progress" data-progress="85">
+                            <div class="progress-bar">
                                 <span class="progress-text">85%</span>
                             </div>
                         </div>
@@ -351,8 +351,8 @@
                 <a href="https://aws.amazon.com/" target="_blank">
                     <img class="skill-img" src="img/skills/Storage-Accounts.png" alt="AWS">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 75%">
+                        <div class="skill-progress" data-progress="75">
+                            <div class="progress-bar">
                                 <span class="progress-text">90%</span>
                             </div>
                         </div>
@@ -364,8 +364,8 @@
                 <a href="https://aws.amazon.com/" target="_blank">
                     <img class="skill-img" src="img/skills/Function-Apps.png" alt="AWS">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 70%">
+                        <div class="skill-progress" data-progress="70">
+                            <div class="progress-bar">
                                 <span class="progress-text">90%</span>
                             </div>
                         </div>
@@ -377,8 +377,8 @@
                 <a href="https://aws.amazon.com/" target="_blank">
                     <img class="skill-img" src="img/skills/python.png" alt="AWS">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 80%">
+                        <div class="skill-progress" data-progress="80">
+                            <div class="progress-bar">
                                 <span class="progress-text">80%</span>
                             </div>
                         </div>
@@ -390,8 +390,8 @@
                 <a href="https://aws.amazon.com/" target="_blank">
                     <img class="skill-img" src="img/skills/SQL-Database.png" alt="AWS">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 85%">
+                        <div class="skill-progress" data-progress="85">
+                            <div class="progress-bar">
                                 <span class="progress-text">85%</span>
                             </div>
                         </div>
@@ -403,8 +403,8 @@
                 <a href="https://aws.amazon.com/" target="_blank">
                     <img class="skill-img" src="img/skills/Apache_Spark_logo_resized (2).png" alt="AWS">
                     <div class="skill-rating">
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 80%">
+                        <div class="skill-progress" data-progress="80">
+                            <div class="progress-bar">
                                 <span class="progress-text">80%</span>
                             </div>
                         </div>
@@ -504,15 +504,24 @@
         margin: 5px 0;
         height: 20px;
         position: relative;
+        overflow: hidden;
     }
 
     .progress-bar {
         height: 100%;
         border-radius: 10px;
         background-color: #4DB8FF;
-        transition: width 1s ease-in-out;
         position: relative;
+        width: 0;
+        transition: width 1.5s ease-in-out;
     }
+
+    /* Add data attributes for progress percentage */
+    [data-progress="80"] .progress-bar.animate { width: 80%; }
+    [data-progress="85"] .progress-bar.animate { width: 85%; }
+    [data-progress="70"] .progress-bar.animate { width: 70%; }
+    [data-progress="90"] .progress-bar.animate { width: 90%; }
+    [data-progress="75"] .progress-bar.animate { width: 75%; }
 
     .progress-text {
         position: absolute;
@@ -522,13 +531,7 @@
         color: #000;
         font-size: 12px;
         font-weight: bold;
-    }
-
-    .skill-rating {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+        z-index: 1;
     }
 
     /* Dark mode support for progress bar */
@@ -792,7 +795,7 @@
 				<div class="col-lg-6 col-12">
 					<div class="contact-form">
 						<h2 class="mb-4">Let's talk<br>Let's work together,</h2>
-						<form action="mailto:sauravkumarrajjoli@gmail.com.com" method="post" enctype="text/plain">
+						<form action="mailto:sauravkumarrajjoli@gmail.com" method="post" enctype="text/plain">
 							<div class="row">
 								<div class="col-lg-6 col-12">
 									<input type="text" class="form-control" name="name" placeholder="Your Name" id="name" required> </div>
@@ -913,6 +916,29 @@
 
 
 </style>
+
+<script>
+// Add this script at the end of the body
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add animation class to all progress bars within the intersecting skill section
+                entry.target.querySelectorAll('.progress-bar').forEach(bar => {
+                    bar.classList.add('animate');
+                });
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when at least 10% of the element is visible
+    });
+
+    // Observe all skill progress sections
+    document.querySelectorAll('.skill-rating').forEach(section => {
+        observer.observe(section);
+    });
+});
+</script>
 
 
 
