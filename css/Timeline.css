@@ -261,11 +261,15 @@ b, strong {
   position: relative;
   font-weight: 500;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .color-mode-icon {
   position: relative;
   right: 6px;
+  display: inline-block;
 }
 .color-mode-icon:after {
   font-family: 'unicons';
@@ -273,6 +277,7 @@ b, strong {
   font-size: 30px;
   font-weight: 300;
   font-style: normal;
+  display: inline-block;
 }
 .color-mode-icon.active:after {
   font-family: 'unicons';
@@ -295,18 +300,18 @@ b, strong {
 }
 
 .dark-mode .navbar-light .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: #fff;
 }
 .dark-mode .navbar-light .navbar-nav .nav-link:hover {
   color: #ffc200;
 }
 .dark-mode .navbar[class*="headroom--not-top"] {
-  background: #212121;
+  background: #0c0c0c;
   border-bottom: 1px solid #1f1f1f;
 }
 .dark-mode .small-text {
-  background: #0d0c15;
-  color: #ffffffd4;
+  background: #0c0c0c;
+  color: #ffffff;
 }
 .dark-mode .feature-card .uil,
 .dark-mode .navbar-light .navbar-brand,
@@ -484,7 +489,8 @@ b, strong {
   .color-mode {
     display: flex;
     justify-content: center;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
   }
 
   .about-image {
@@ -502,11 +508,11 @@ b, strong {
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 2.4em;
+    font-size: 28px;
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 22px;
   }
 
   .animated-item {
@@ -514,9 +520,12 @@ b, strong {
   }
 
   .navbar-collapse {
-    background: #ffffff;
-    text-align: center;
-    padding-bottom: 20px;
+    background: var(--nav-bg-color, rgba(255, 255, 255, 0.95));
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    margin: 0;
+    border-radius: 5px;
   }
 
   .navbar-expand-sm .navbar-nav .nav-link {
@@ -526,10 +535,21 @@ b, strong {
   .color-mode-icon:after,
   .color-mode-icon.active:after {
     font-size: 24px;
+    display: inline-block;
   }
   
   .color-mode {
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+  }
+
+  .nav-item .color-mode {
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
   }
 }
 @media (max-width: 580px) {
@@ -618,5 +638,15 @@ b, strong {
   text-align: center;
   font-size: 17px;
 
+}
+
+.dark-mode .navbar-collapse {
+  background: var(--nav-bg-color, rgba(45, 45, 45, 0.95));
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.dark-mode):not(.light-mode) .navbar-collapse {
+    background: var(--nav-bg-color, rgba(45, 45, 45, 0.95));
+  }
 }
 
