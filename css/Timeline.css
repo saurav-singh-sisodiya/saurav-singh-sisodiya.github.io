@@ -1,6 +1,3 @@
-
-
-
 @import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
 body {
   font-family: "Maven Pro", sans-serif;
@@ -261,7 +258,8 @@ b, strong {
 }
 
 .color-mode {
-  font-weight: bold;
+  position: relative;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -278,13 +276,22 @@ b, strong {
 }
 .color-mode-icon.active:after {
   font-family: 'unicons';
-  content: '\eb65';
+  content: '\eb8f';
   font-size: 30px;
-  color: #ffffff;
 }
 
 .dark-mode {
-  background: #212121;
+  background-color: #0c0c0c;
+  color: #fff;
+}
+
+/* Ensure dark mode works on mobile */
+.dark-mode .navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.dark-mode .navbar-light .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .dark-mode .navbar-light .navbar-nav .nav-link {
@@ -471,11 +478,13 @@ b, strong {
 }
 @media (max-width: 991px) {
   .full-screen {
-    padding-bottom: 4rem;
+    padding: 4rem 0;
   }
 
   .color-mode {
-    display: none;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
   }
 
   .about-image {
@@ -512,6 +521,15 @@ b, strong {
 
   .navbar-expand-sm .navbar-nav .nav-link {
     padding: 3px 20px;
+  }
+
+  .color-mode-icon:after,
+  .color-mode-icon.active:after {
+    font-size: 24px;
+  }
+  
+  .color-mode {
+    font-size: 14px;
   }
 }
 @media (max-width: 580px) {
