@@ -32,7 +32,8 @@
             // Force repaint of navbar elements
             setTimeout(function() {
                 $('.navbar-collapse').hide().show(0);
-                $('.nav-item .color-mode').hide().show(0);
+                // Remove reference to the duplicate mobile toggle
+                // $('.nav-item .color-mode').hide().show(0);
             }, 50);
         }
     });
@@ -104,7 +105,8 @@
                     // Additional fix for color mode toggle in navbar
                     if ($('body').hasClass('dark-mode')) {
                         $('.toggle-text').css('color', '#ffffff');
-                        $('.nav-item .color-mode').css({
+                        // Update selector to target the single color-mode element
+                        $('.color-mode').css({
                             'background-color': 'rgba(77, 184, 255, 0.3)',
                             'border': '1px solid rgba(77, 184, 255, 0.6)',
                             'color': '#ffffff'

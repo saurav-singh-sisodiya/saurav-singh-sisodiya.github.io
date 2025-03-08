@@ -20,7 +20,49 @@
 	<link rel="stylesheet" href="css/Timeline.css">
 	<link rel="stylesheet" href="css/Loader.css">
 	<link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css"> </head>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	
+	<!-- Additional styles for the theme toggle -->
+	<style>
+		/* Additional styles for the theme toggle on mobile */
+		@media (max-width: 991px) {
+			/* Ensure the theme toggle is properly styled on mobile */
+			.navbar-nav.ml-auto {
+				margin-top: 15px;
+				margin-bottom: 5px;
+			}
+			
+			.color-mode {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 12px 15px;
+				margin: 5px 0;
+				border-radius: 8px;
+				background-color: rgba(77, 184, 255, 0.15);
+				transition: all 0.3s ease;
+				border: 1px solid rgba(77, 184, 255, 0.3);
+				cursor: pointer;
+			}
+			
+			.dark-mode .color-mode {
+				background-color: rgba(77, 184, 255, 0.25);
+				border: 1px solid rgba(77, 184, 255, 0.5);
+			}
+			
+			.toggle-text {
+				margin-left: 8px;
+				font-size: 16px;
+				font-weight: 500;
+			}
+			
+			/* Ensure the toggle text is visible on mobile */
+			.d-lg-none.toggle-text {
+				display: inline-block !important;
+			}
+		}
+	</style>
+</head>
 
 
 
@@ -54,21 +96,16 @@
 					<li class="nav-item"><a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a></li>
 				</ul>
 				
-				<!-- Theme toggle on the right -->
+				<!-- Theme toggle on the right - works on both desktop and mobile -->
 				<div class="navbar-nav ml-auto">
 					<div class="color-mode d-flex justify-content-center align-items-center">
 						<i class="color-mode-icon"></i>
 						<span class="d-none d-lg-inline-block ml-2">Toggle Theme</span>
+						<span class="d-lg-none toggle-text">Toggle Theme</span>
 					</div>
 				</div>
 				
-				<!-- Mobile theme toggle (only visible on mobile) -->
-				<div class="d-lg-none mt-3">
-					<div class="color-mode d-flex justify-content-center align-items-center mobile-color-toggle">
-						<i class="color-mode-icon"></i>
-						<span class="toggle-text">Toggle Theme</span>
-					</div>
-				</div>
+				<!-- Removed duplicate mobile theme toggle -->
 			</div>
 		</div>
 	</nav>
