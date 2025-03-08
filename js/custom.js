@@ -2,17 +2,40 @@
 
   "use strict";
     // COLOR MODE
-    $('.color-mode').click(function(){
-        $('.color-mode-icon').toggleClass('active')
-        $('body').toggleClass('dark-mode')
+    $('.color-mode').click(function(e){
+        e.preventDefault();
+        $('.color-mode-icon').toggleClass('active');
+        $('body').toggleClass('dark-mode');
+        
+        // Force repaint to fix iOS rendering issues
+        document.body.style.display = 'none';
+        document.body.offsetHeight; // Trigger a reflow
+        document.body.style.display = '';
         
         // Save preference to localStorage
         if ($('body').hasClass('dark-mode')) {
             localStorage.setItem('theme', 'dark');
+            // Add explicit class to navbar collapse for iOS
+            $('.navbar-collapse').addClass('dark-navbar-collapse');
+            // Force color update for mobile toggle
+            $('.toggle-text').css('color', '#ffffff');
         } else {
             localStorage.setItem('theme', 'light');
+            // Remove explicit class from navbar collapse for iOS
+            $('.navbar-collapse').removeClass('dark-navbar-collapse');
+            // Force color update for mobile toggle
+            $('.toggle-text').css('color', '#333333');
         }
-    })
+        
+        // Additional fix for iPhone
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            // Force repaint of navbar elements
+            setTimeout(function() {
+                $('.navbar-collapse').hide().show(0);
+                $('.nav-item .color-mode').hide().show(0);
+            }, 50);
+        }
+    });
 
     // Check for saved theme preference or use system preference
     $(document).ready(function() {
@@ -24,12 +47,20 @@
             if (savedTheme === 'dark') {
                 $('body').addClass('dark-mode');
                 $('.color-mode-icon').addClass('active');
+                // Add explicit class to navbar collapse for iOS
+                $('.navbar-collapse').addClass('dark-navbar-collapse');
+                // Force color update for mobile toggle
+                $('.toggle-text').css('color', '#ffffff');
             }
         } else {
             // If no saved preference, use system preference
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 $('body').addClass('dark-mode');
                 $('.color-mode-icon').addClass('active');
+                // Add explicit class to navbar collapse for iOS
+                $('.navbar-collapse').addClass('dark-navbar-collapse');
+                // Force color update for mobile toggle
+                $('.toggle-text').css('color', '#ffffff');
             }
         }
 
@@ -41,11 +72,45 @@
                     if (e.matches) {
                         $('body').addClass('dark-mode');
                         $('.color-mode-icon').addClass('active');
+                        // Add explicit class to navbar collapse for iOS
+                        $('.navbar-collapse').addClass('dark-navbar-collapse');
+                        // Force color update for mobile toggle
+                        $('.toggle-text').css('color', '#ffffff');
                     } else {
                         $('body').removeClass('dark-mode');
                         $('.color-mode-icon').removeClass('active');
+                        // Remove explicit class from navbar collapse for iOS
+                        $('.navbar-collapse').removeClass('dark-navbar-collapse');
+                        // Force color update for mobile toggle
+                        $('.toggle-text').css('color', '#333333');
                     }
                 }
+            });
+        }
+        
+        // Fix for iOS Safari rendering issues with backdrop-filter
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            // Add iOS-specific class
+            $('body').addClass('ios-device');
+            
+            // Handle navbar toggle click for iOS
+            $('.navbar-toggler').on('click', function() {
+                // Force repaint after navbar toggle
+                setTimeout(function() {
+                    document.body.style.display = 'none';
+                    document.body.offsetHeight; // Trigger a reflow
+                    document.body.style.display = '';
+                    
+                    // Additional fix for color mode toggle in navbar
+                    if ($('body').hasClass('dark-mode')) {
+                        $('.toggle-text').css('color', '#ffffff');
+                        $('.nav-item .color-mode').css({
+                            'background-color': 'rgba(77, 184, 255, 0.3)',
+                            'border': '1px solid rgba(77, 184, 255, 0.6)',
+                            'color': '#ffffff'
+                        });
+                    }
+                }, 50);
             });
         }
     });
@@ -88,5 +153,6 @@
     $('.social-links a').tooltip();
 
 })(jQuery);
+
 
 

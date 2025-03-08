@@ -44,8 +44,8 @@
 					<li class="nav-item"> <a href="#skills" class="nav-link"><span data-hover="Skills">Skills</span></a> </li>
 					<li class="nav-item"> <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a> </li>
 					<li class="nav-item d-block d-lg-none"> 
-						<div class="color-mode d-flex justify-content-center align-items-center"> 
-							<i class="color-mode-icon"></i> Color mode 
+						<div class="color-mode d-flex justify-content-center align-items-center mobile-color-toggle"> 
+							<i class="color-mode-icon"></i> <span class="toggle-text">Toggle Theme</span>
 						</div>
 					</li>
 				</ul>
@@ -121,13 +121,127 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
-            margin: 5px 0;
+            padding: 12px 15px;
+            margin: 10px 20px;
+            border-radius: 8px;
+            background-color: rgba(77, 184, 255, 0.15);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(77, 184, 255, 0.3);
+            cursor: pointer;
+        }
+        
+        .dark-mode .nav-item .color-mode {
+            background-color: rgba(77, 184, 255, 0.25);
+            border: 1px solid rgba(77, 184, 255, 0.5);
+            color: #ffffff !important;
+        }
+        
+        .nav-item .color-mode:active {
+            transform: scale(0.95);
         }
         
         .nav-item .color-mode-icon {
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 20px;
         }
+        
+        .mobile-color-toggle {
+            font-weight: bold;
+        }
+        
+        .toggle-text {
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .dark-mode .toggle-text {
+            color: #ffffff !important;
+        }
+        
+        /* Ensure the navbar toggle is visible in dark mode */
+        .dark-mode .navbar-light .navbar-toggler {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Ensure the navbar collapse has enough contrast in dark mode */
+        .dark-mode .navbar-collapse,
+        .dark-navbar-collapse {
+            background-color: rgba(30, 30, 30, 0.97) !important;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Fix for iPhone 15 dark mode */
+        .dark-mode .navbar-nav .nav-link span {
+            color: #ffffff !important;
+        }
+        
+        /* Fix for the reflection effect in the mobile menu */
+        .navbar-collapse {
+            text-shadow: none !important;
+        }
+        
+        .navbar-nav .nav-item a.nav-link span {
+            text-shadow: none !important;
+        }
+        
+        /* Fix for backdrop blur causing reflections */
+        .navbar-collapse {
+            background-color: rgba(255, 255, 255, 0.97) !important;
+            -webkit-backdrop-filter: none !important;
+            backdrop-filter: none !important;
+        }
+        
+        .dark-mode .navbar-collapse,
+        .dark-navbar-collapse {
+            background-color: rgba(30, 30, 30, 0.97) !important;
+            -webkit-backdrop-filter: none !important;
+            backdrop-filter: none !important;
+        }
+    }
+    
+    /* iOS-specific fixes */
+    .ios-device .navbar-collapse {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        background-color: rgba(255, 255, 255, 0.97) !important;
+    }
+    
+    .ios-device.dark-mode .navbar-collapse,
+    .ios-device .dark-navbar-collapse {
+        background-color: #1e1e1e !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+    
+    .ios-device .navbar-nav .nav-link span {
+        text-shadow: none !important;
+    }
+    
+    .ios-device.dark-mode .navbar-nav .nav-link {
+        color: #ffffff !important;
+        text-shadow: none !important;
+    }
+    
+    .ios-device.dark-mode .navbar-light .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+    
+    /* Make the toggle button more visible on iPhone */
+    .ios-device .nav-item .color-mode {
+        background-color: rgba(77, 184, 255, 0.2);
+        border: 1px solid rgba(77, 184, 255, 0.4);
+    }
+    
+    .ios-device.dark-mode .nav-item .color-mode {
+        background-color: rgba(77, 184, 255, 0.3);
+        border: 1px solid rgba(77, 184, 255, 0.6);
+    }
+    
+    .ios-device.dark-mode .toggle-text {
+        color: #ffffff !important;
+        text-shadow: none !important;
     }
     
     /* Project Cards Styling */
@@ -307,6 +421,90 @@
 
     .project-card {
         cursor: pointer;
+    }
+
+    /* Fix for the menu reflection issue */
+    .navbar-collapse {
+        background-color: rgb(255, 255, 255) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        text-shadow: none !important;
+    }
+    
+    .dark-mode .navbar-collapse,
+    .dark-navbar-collapse {
+        background-color: rgb(30, 30, 30) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        text-shadow: none !important;
+    }
+    
+    .navbar-nav .nav-item a.nav-link,
+    .navbar-nav .nav-item a.nav-link span {
+        text-shadow: none !important;
+    }
+    
+    /* Additional styles for color mode toggle on mobile */
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            background-color: rgb(255, 255, 255) !important;
+            -webkit-backdrop-filter: none !important;
+            backdrop-filter: none !important;
+        }
+        
+        .dark-mode .navbar-collapse,
+        .dark-navbar-collapse {
+            background-color: rgb(30, 30, 30) !important;
+            -webkit-backdrop-filter: none !important;
+            backdrop-filter: none !important;
+        }
+        
+        .nav-item .color-mode {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 15px;
+            margin: 10px 20px;
+            border-radius: 8px;
+            background-color: rgba(77, 184, 255, 0.15);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(77, 184, 255, 0.3);
+            cursor: pointer;
+            text-shadow: none !important;
+        }
+        
+        .dark-mode .nav-item .color-mode {
+            background-color: rgba(77, 184, 255, 0.25);
+            border: 1px solid rgba(77, 184, 255, 0.5);
+            color: #ffffff !important;
+            text-shadow: none !important;
+        }
+        
+        .nav-item .color-mode:active {
+            transform: scale(0.95);
+        }
+        
+        .nav-item .color-mode-icon {
+            margin-right: 12px;
+            font-size: 20px;
+            text-shadow: none !important;
+        }
+        
+        .mobile-color-toggle {
+            font-weight: bold;
+            text-shadow: none !important;
+        }
+        
+        .toggle-text {
+            font-size: 16px;
+            color: #333;
+            text-shadow: none !important;
+        }
+        
+        .dark-mode .toggle-text {
+            color: #ffffff !important;
+            text-shadow: none !important;
+        }
     }
 </style>
 
@@ -947,8 +1145,115 @@
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 document.body.classList.add('dark-mode');
                 document.querySelector('.color-mode-icon')?.classList.add('active');
+                document.querySelector('.navbar-collapse')?.classList.add('dark-navbar-collapse');
+                
+                // Force text color for iPhone
+                document.querySelectorAll('.toggle-text').forEach(el => {
+                    el.style.color = '#ffffff';
+                });
             }
+        } else if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.color-mode-icon')?.classList.add('active');
+            document.querySelector('.navbar-collapse')?.classList.add('dark-navbar-collapse');
+            
+            // Force text color for iPhone
+            document.querySelectorAll('.toggle-text').forEach(el => {
+                el.style.color = '#ffffff';
+            });
         }
+        
+        // iOS detection
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            document.body.classList.add('ios-device');
+            
+            // Fix for reflections in menu text
+            document.querySelectorAll('.navbar-nav .nav-item a.nav-link span').forEach(el => {
+                el.style.textShadow = 'none';
+            });
+            
+            // Fix for backdrop blur
+            document.querySelectorAll('.navbar-collapse').forEach(el => {
+                el.style.webkitBackdropFilter = 'none';
+                el.style.backdropFilter = 'none';
+                if (document.body.classList.contains('dark-mode')) {
+                    el.style.backgroundColor = 'rgba(30, 30, 30, 0.97)';
+                } else {
+                    el.style.backgroundColor = 'rgba(255, 255, 255, 0.97)';
+                }
+            });
+            
+            // Special fix for iPhone 15
+            if (/iPhone15/i.test(navigator.userAgent) || /iPhone/i.test(navigator.userAgent)) {
+                // Add iPhone 15 specific class
+                document.body.classList.add('iphone15');
+                
+                // Apply additional styles for iPhone 15
+                if (document.body.classList.contains('dark-mode')) {
+                    document.querySelectorAll('.nav-item .color-mode').forEach(el => {
+                        el.style.backgroundColor = 'rgba(77, 184, 255, 0.4)';
+                        el.style.border = '1px solid rgba(77, 184, 255, 0.7)';
+                    });
+                    
+                    document.querySelectorAll('.toggle-text').forEach(el => {
+                        el.style.color = '#ffffff';
+                        el.style.textShadow = 'none';
+                    });
+                }
+            }
+            
+            // Force repaint for iOS
+            setTimeout(() => {
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // Trigger a reflow
+                document.body.style.display = '';
+                
+                // Additional fix for iPhone
+                if (document.body.classList.contains('dark-mode')) {
+                    document.querySelectorAll('.toggle-text').forEach(el => {
+                        el.style.color = '#ffffff';
+                        el.style.textShadow = 'none';
+                    });
+                }
+            }, 100);
+        }
+        
+        // Add click event listener to mobile color toggle
+        document.querySelectorAll('.nav-item .color-mode').forEach(el => {
+            el.addEventListener('click', function() {
+                // Force text color update after toggle
+                setTimeout(() => {
+                    if (document.body.classList.contains('dark-mode')) {
+                        document.querySelectorAll('.toggle-text').forEach(el => {
+                            el.style.color = '#ffffff';
+                            el.style.textShadow = 'none';
+                        });
+                        document.querySelectorAll('.navbar-nav .nav-item a.nav-link span').forEach(el => {
+                            el.style.textShadow = 'none';
+                        });
+                    } else {
+                        document.querySelectorAll('.toggle-text').forEach(el => {
+                            el.style.color = '#333333';
+                            el.style.textShadow = 'none';
+                        });
+                        document.querySelectorAll('.navbar-nav .nav-item a.nav-link span').forEach(el => {
+                            el.style.textShadow = 'none';
+                        });
+                    }
+                    
+                    // Fix for backdrop blur
+                    document.querySelectorAll('.navbar-collapse').forEach(el => {
+                        el.style.webkitBackdropFilter = 'none';
+                        el.style.backdropFilter = 'none';
+                        if (document.body.classList.contains('dark-mode')) {
+                            el.style.backgroundColor = 'rgba(30, 30, 30, 0.97)';
+                        } else {
+                            el.style.backgroundColor = 'rgba(255, 255, 255, 0.97)';
+                        }
+                    });
+                }, 50);
+            });
+        });
     });
 </script>
 

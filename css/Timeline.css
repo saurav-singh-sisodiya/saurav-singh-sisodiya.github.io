@@ -520,22 +520,51 @@ b, strong {
   }
 
   .navbar-collapse {
-    background: var(--nav-bg-color, rgba(255, 255, 255, 0.95));
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.97);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     padding: 1rem;
     margin: 0;
     border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-shadow: none;
+  }
+
+  .dark-mode .navbar-collapse {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(30, 30, 30, 0.97);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    text-shadow: none;
   }
 
   .navbar-expand-sm .navbar-nav .nav-link {
-    padding: 3px 20px;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-shadow: none;
+  }
+  
+  .navbar-nav .nav-item a.nav-link span {
+    text-shadow: none;
+  }
+  
+  .dark-mode .navbar-expand-sm .navbar-nav .nav-link {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    text-shadow: none;
+  }
+  
+  .dark-mode .navbar-expand-sm .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .color-mode-icon:after,
   .color-mode-icon.active:after {
     font-size: 24px;
     display: inline-block;
+    text-shadow: none;
   }
   
   .color-mode {
@@ -545,11 +574,50 @@ b, strong {
     justify-content: center;
     margin: 0.5rem 0;
     padding: 0.5rem 0;
+    background-color: rgba(77, 184, 255, 0.1);
+    border-radius: 5px;
+    text-shadow: none;
+  }
+  
+  .dark-mode .color-mode {
+    background-color: rgba(77, 184, 255, 0.2);
+    color: #ffffff;
+    text-shadow: none;
   }
 
   .nav-item .color-mode {
-    margin: 0.5rem 0;
-    padding: 0.5rem 0;
+    margin: 10px 20px;
+    padding: 10px;
+    border: 1px solid rgba(77, 184, 255, 0.3);
+    text-shadow: none;
+  }
+  
+  .dark-mode .nav-item .color-mode {
+    border: 1px solid rgba(77, 184, 255, 0.5);
+    text-shadow: none;
+  }
+  
+  /* Fix for iPhone dark mode */
+  .ios-device.dark-mode .navbar-nav .nav-item a.nav-link {
+    color: #ffffff !important;
+    text-shadow: none !important;
+  }
+  
+  .ios-device.dark-mode .navbar-nav .nav-item .color-mode {
+    background-color: rgba(77, 184, 255, 0.3) !important;
+    border: 1px solid rgba(77, 184, 255, 0.6) !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+  }
+  
+  .ios-device.dark-mode .navbar-nav .nav-item .color-mode .toggle-text {
+    color: #ffffff !important;
+    text-shadow: none !important;
+  }
+  
+  .ios-device.dark-mode .navbar-nav .nav-item .color-mode .color-mode-icon:after {
+    color: #ffffff !important;
+    text-shadow: none !important;
   }
 }
 @media (max-width: 580px) {
@@ -641,12 +709,26 @@ b, strong {
 }
 
 .dark-mode .navbar-collapse {
-  background: var(--nav-bg-color, rgba(45, 45, 45, 0.95));
+  background: rgba(45, 45, 45, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.dark-mode .navbar-light .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(45, 45, 45, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
   body:not(.dark-mode):not(.light-mode) .navbar-collapse {
-    background: var(--nav-bg-color, rgba(45, 45, 45, 0.95));
+    background: rgba(45, 45, 45, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  
+  body:not(.dark-mode):not(.light-mode) .navbar-light .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(45, 45, 45, 0.5);
   }
 }
 
