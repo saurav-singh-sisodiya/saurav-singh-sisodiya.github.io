@@ -32,31 +32,47 @@
 		<div class="layer"><h3>Fetching .. </h3></div>
 	</div>
 	<!-- MENU -->
-	<nav class="navbar navbar-expand-sm navbar-light">
-		<div class="container"> <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Saurav</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span> </button>
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<div class="container">
+			<!-- Brand/logo on the left -->
+			<a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Saurav</a>
+			
+			<!-- Hamburger menu for mobile -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<!-- Navbar content -->
 			<div class="collapse navbar-collapse" id="navbarNav">
+				<!-- Navigation links centered -->
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item"> <a href="#about" class="nav-link"><span data-hover="About">About</span></a> </li>
-					<li class="nav-item"> <a href="#certificates" class="nav-link"><span data-hover="Certification">Certification</span></a> </li>
-					<li class="nav-item"> <a href="#Workexpr" class="nav-link"><span data-hover="Experience">Experience</span></a> </li>
-					<li class="nav-item"> <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a> </li>
-					<li class="nav-item"> <a href="#skills" class="nav-link"><span data-hover="Skills">Skills</span></a> </li>
-					<li class="nav-item"> <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a> </li>
-					<li class="nav-item d-block d-lg-none"> 
-						<div class="color-mode d-flex justify-content-center align-items-center mobile-color-toggle"> 
-							<i class="color-mode-icon"></i> <span class="toggle-text">Toggle Theme</span>
-						</div>
-					</li>
+					<li class="nav-item"><a href="#about" class="nav-link"><span data-hover="About">About</span></a></li>
+					<li class="nav-item"><a href="#certificates" class="nav-link"><span data-hover="Certification">Certification</span></a></li>
+					<li class="nav-item"><a href="#Workexpr" class="nav-link"><span data-hover="Experience">Experience</span></a></li>
+					<li class="nav-item"><a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a></li>
+					<li class="nav-item"><a href="#skill" class="nav-link"><span data-hover="Skills">Skills</span></a></li>
+					<li class="nav-item"><a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a></li>
 				</ul>
-				<ul class="navbar-nav ml-lg-auto">
-					<div class="ml-lg-4 d-none d-lg-block">
-						<div class="color-mode d-flex justify-content-center align-items-center"> <i class="color-mode-icon"></i> Color mode </div>
+				
+				<!-- Theme toggle on the right -->
+				<div class="navbar-nav ml-auto">
+					<div class="color-mode d-flex justify-content-center align-items-center">
+						<i class="color-mode-icon"></i>
+						<span class="d-none d-lg-inline-block ml-2">Toggle Theme</span>
 					</div>
-				</ul>
+				</div>
+				
+				<!-- Mobile theme toggle (only visible on mobile) -->
+				<div class="d-lg-none mt-3">
+					<div class="color-mode d-flex justify-content-center align-items-center mobile-color-toggle">
+						<i class="color-mode-icon"></i>
+						<span class="toggle-text">Toggle Theme</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</nav>
+	
 	<!-- ABOUT -->
 	<section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
 		<div class="container">
@@ -115,6 +131,230 @@
 
 
 <style>
+    /* CRITICAL FIX: Remove black background from entire page top */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background-color: transparent !important;
+        z-index: 999;
+    }
+    
+    body.dark-mode::before {
+        background-color: transparent !important;
+    }
+    
+    /* Reset and remove black strap/background from navbar */
+    .navbar, 
+    .navbar.navbar-expand-lg, 
+    .navbar.navbar-light,
+    .navbar.navbar-expand-lg.navbar-light {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: transparent !important; /* Remove background */
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        box-shadow: none !important; /* Remove shadow */
+        padding: 15px 0;
+        border: none !important;
+        background-image: none !important;
+    }
+    
+    /* Improved navbar layout for desktop */
+    @media (min-width: 992px) {
+        .navbar-expand-lg .navbar-nav {
+            flex-direction: row;
+        }
+        
+        .navbar-expand-lg .navbar-collapse {
+            display: flex !important;
+            flex-basis: auto;
+        }
+        
+        .navbar-expand-lg .navbar-nav .nav-link {
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+        
+        /* Ensure the theme toggle is on the right */
+        .navbar-expand-lg .navbar-nav.ml-auto {
+            margin-left: auto !important;
+        }
+    }
+    
+    /* Remove any background from navbar brand */
+    .navbar-brand {
+        background-color: transparent !important;
+        text-shadow: none !important;
+        margin-right: 2rem;
+    }
+    
+    /* Fix the navbar links to be visible without reflections */
+    .navbar-nav .nav-item a.nav-link,
+    .navbar-nav .nav-item a.nav-link span {
+        text-shadow: none !important;
+        background-color: transparent !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+        transform: none !important;
+        -webkit-transform: none !important;
+        transition: color 0.3s ease !important;
+        -webkit-transition: color 0.3s ease !important;
+        animation: none !important;
+        -webkit-animation: none !important;
+    }
+    
+    /* Disable the hover animation that might cause reflection */
+    .nav-link span:before {
+        display: none !important;
+    }
+    
+    /* Alternative hover effect without reflection */
+    .navbar-light .navbar-nav .nav-link:focus span,
+    .navbar-light .navbar-nav .nav-link:hover span {
+        transform: none !important;
+        color: #ffc200 !important;
+    }
+    
+    /* Improved spacing for navbar items */
+    .navbar-nav .nav-item {
+        margin: 0 5px;
+    }
+    
+    /* Ensure navbar-collapse has a solid background in mobile view */
+    .navbar-collapse {
+        background-color: rgb(255, 255, 255) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+    
+    /* Dark mode support with transparent background */
+    body.dark-mode .navbar,
+    body.dark-mode .navbar.navbar-expand-lg,
+    body.dark-mode .navbar.navbar-light,
+    body.dark-mode .navbar.navbar-expand-lg.navbar-light {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        background-image: none !important;
+    }
+    
+    /* For dark mode, ensure text is visible on transparent background */
+    body.dark-mode .navbar .nav-link span {
+        color: #fff !important;
+        text-shadow: none !important;
+    }
+    
+    /* Mobile - ensure hamburger is visible but no black background */
+    @media (max-width: 991px) {
+        .navbar,
+        .navbar.navbar-expand-lg,
+        .navbar.navbar-light,
+        .navbar.navbar-expand-lg.navbar-light {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+        
+        .navbar-collapse {
+            background-color: rgba(255, 255, 255, 0.97) !important;
+            -webkit-backdrop-filter: none !important;
+            backdrop-filter: none !important;
+            text-shadow: none !important;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+            padding: 15px;
+        }
+        
+        .dark-mode .navbar-collapse,
+        .dark-navbar-collapse {
+            background-color: rgba(30, 30, 30, 0.97) !important;
+            -webkit-backdrop-filter: none !important;
+            backdrop-filter: none !important;
+            text-shadow: none !important;
+        }
+        
+        /* Make the toggle button stand out without background */
+        .navbar-toggler {
+            border: 1px solid rgba(0,0,0,0.2) !important;
+            background-color: rgba(255,255,255,0.8) !important;
+            padding: 0.5rem;
+        }
+        
+        .dark-mode .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            background-color: rgba(30,30,30,0.8) !important;
+        }
+        
+        /* Improved mobile menu styling */
+        .navbar-nav .nav-item {
+            margin: 8px 0;
+        }
+        
+        .navbar-nav .nav-item a.nav-link {
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-item a.nav-link:hover {
+            background-color: rgba(77, 184, 255, 0.1);
+        }
+        
+        .dark-mode .navbar-nav .nav-item a.nav-link:hover {
+            background-color: rgba(77, 184, 255, 0.2);
+        }
+    }
+    
+    /* Improved theme toggle styling */
+    .color-mode {
+        cursor: pointer;
+        padding: 8px 15px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+    
+    .color-mode:hover {
+        background-color: rgba(77, 184, 255, 0.1);
+    }
+    
+    .dark-mode .color-mode:hover {
+        background-color: rgba(77, 184, 255, 0.2);
+    }
+    
+    /* Mobile theme toggle styling */
+    @media (max-width: 991px) {
+        .mobile-color-toggle {
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background-color: rgba(77, 184, 255, 0.15);
+            border: 1px solid rgba(77, 184, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .dark-mode .mobile-color-toggle {
+            background-color: rgba(77, 184, 255, 0.25);
+            border: 1px solid rgba(77, 184, 255, 0.5);
+        }
+    }
+    
+    /* Adjust content to account for fixed navbar with transparent background */
+    .about {
+        padding-top: 100px; /* Increased padding to compensate for navbar */
+    }
+    
     /* Additional styles for color mode toggle on mobile */
     @media (max-width: 991px) {
         .nav-item .color-mode {
@@ -160,16 +400,16 @@
         
         /* Ensure the navbar toggle is visible in dark mode */
         .dark-mode .navbar-light .navbar-toggler {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(30, 30, 30, 0.8) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
         }
         
         /* Ensure the navbar collapse has enough contrast in dark mode */
         .dark-mode .navbar-collapse,
         .dark-navbar-collapse {
             background-color: rgba(30, 30, 30, 0.97) !important;
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: none !important;
+            backdrop-filter: none !important;
         }
         
         /* Fix for iPhone 15 dark mode */
@@ -217,6 +457,8 @@
     
     .ios-device .navbar-nav .nav-link span {
         text-shadow: none !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
     }
     
     .ios-device.dark-mode .navbar-nav .nav-link {
@@ -242,6 +484,78 @@
     .ios-device.dark-mode .toggle-text {
         color: #ffffff !important;
         text-shadow: none !important;
+    }
+    
+    /* Additional fixes for dark mode black strap */
+    body.dark-mode .navbar-light {
+        background-color: transparent !important;
+    }
+    
+    body.dark-mode .navbar-light .navbar-brand {
+        color: #fff !important;
+    }
+    
+    /* Fix for headroom.js adding background */
+    .headroom {
+        background-color: transparent !important;
+    }
+    
+    .headroom--pinned, 
+    .headroom--unpinned, 
+    .headroom--top, 
+    .headroom--not-top {
+        background-color: transparent !important;
+    }
+    
+    body.dark-mode .headroom,
+    body.dark-mode .headroom--pinned, 
+    body.dark-mode .headroom--unpinned, 
+    body.dark-mode .headroom--top, 
+    body.dark-mode .headroom--not-top {
+        background-color: transparent !important;
+    }
+    
+    /* Fix for mobile menu text reflection */
+    .navbar-nav .nav-item a.nav-link {
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        -moz-perspective: 1000;
+        -ms-perspective: 1000;
+        perspective: 1000;
+    }
+    
+    /* CRITICAL: Override any dark background in the entire navbar area */
+    .navbar, 
+    .navbar *, 
+    .navbar-expand-sm, 
+    .navbar-expand-sm *,
+    .navbar-light, 
+    .navbar-light *,
+    .navbar-expand-sm.navbar-light,
+    .navbar-expand-sm.navbar-light * {
+        background-color: transparent !important;
+    }
+    
+    /* Only exception is the navbar-collapse which needs a background */
+    .navbar-collapse {
+        background-color: rgb(255, 255, 255) !important;
+    }
+    
+    .dark-mode .navbar-collapse {
+        background-color: rgb(30, 30, 30) !important;
+    }
+    
+    /* Fix for any parent elements that might have a background */
+    body > *:first-child {
+        background-color: transparent !important;
     }
     
     /* Project Cards Styling */
@@ -322,38 +636,6 @@
 
     .project-card li {
         margin-bottom: 5px;
-    }
-
-    /* Fixed Navigation Styles */
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: var(--nav-bg-color, rgba(255, 255, 255, 0.95));
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        padding: 15px 0;
-    }
-
-    /* Adjust content to account for fixed navbar */
-    .about {
-        padding-top: 80px; /* Height of navbar + some padding */
-    }
-
-    /* Dark mode support for navbar */
-    body.dark-mode .navbar {
-        --nav-bg-color: rgba(45, 45, 45, 0.95);
-    }
-
-    /* System preference dark mode for navbar */
-    @media (prefers-color-scheme: dark) {
-        body:not(.dark-mode):not(.light-mode) .navbar {
-            --nav-bg-color: rgba(45, 45, 45, 0.95);
-        }
     }
 
     /* Active link style */
@@ -507,6 +789,249 @@
         }
     }
 </style>
+
+<!-- CRITICAL FIXES FOR NAVBAR ISSUES -->
+<style>
+    /* CRITICAL FIX: Force transparent navbar in all states */
+    .navbar, 
+    .navbar.navbar-expand-sm, 
+    .navbar.navbar-light,
+    .navbar.navbar-expand-sm.navbar-light,
+    .navbar.headroom,
+    .navbar.headroom--pinned,
+    .navbar.headroom--unpinned,
+    .navbar.headroom--top,
+    .navbar.headroom--not-top,
+    .navbar[class*="headroom--not-top"],
+    .dark-mode .navbar,
+    .dark-mode .navbar.navbar-expand-sm,
+    .dark-mode .navbar.navbar-light,
+    .dark-mode .navbar.navbar-expand-sm.navbar-light,
+    .dark-mode .navbar.headroom,
+    .dark-mode .navbar.headroom--pinned,
+    .dark-mode .navbar.headroom--unpinned,
+    .dark-mode .navbar.headroom--top,
+    .dark-mode .navbar.headroom--not-top,
+    .dark-mode .navbar[class*="headroom--not-top"] {
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+    }
+    
+    /* CRITICAL FIX: Ensure mobile menu has solid background with no reflections */
+    .navbar-collapse,
+    .navbar .navbar-collapse,
+    .navbar-expand-sm .navbar-collapse {
+        background: rgb(255, 255, 255) !important;
+        background-color: rgb(255, 255, 255) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        text-shadow: none !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+    }
+    
+    .dark-mode .navbar-collapse,
+    .dark-mode .navbar .navbar-collapse,
+    .dark-mode .navbar-expand-sm .navbar-collapse,
+    .navbar-collapse.dark-navbar-collapse {
+        background: rgb(30, 30, 30) !important;
+        background-color: rgb(30, 30, 30) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        text-shadow: none !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+    }
+    
+    /* CRITICAL FIX: Remove all text shadows from navbar elements */
+    .navbar *,
+    .navbar-brand,
+    .navbar-nav,
+    .nav-item,
+    .nav-link,
+    .nav-link span,
+    .navbar-toggler,
+    .navbar-collapse,
+    .color-mode,
+    .color-mode-icon,
+    .toggle-text {
+        text-shadow: none !important;
+    }
+    
+    /* CRITICAL FIX: Ensure dark mode navbar elements have correct colors */
+    .dark-mode .navbar-light .navbar-brand,
+    .dark-mode .navbar-light .navbar-nav .nav-link,
+    .dark-mode .navbar-light .navbar-nav .nav-link span,
+    .dark-mode .toggle-text {
+        color: #ffffff !important;
+        text-shadow: none !important;
+    }
+    
+    /* CRITICAL FIX: Ensure iOS devices render correctly */
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        .navbar-collapse {
+            transform: translateZ(0) !important;
+            -webkit-transform: translateZ(0) !important;
+            backface-visibility: hidden !important;
+            -webkit-backface-visibility: hidden !important;
+            background: rgb(255, 255, 255) !important;
+            background-color: rgb(255, 255, 255) !important;
+        }
+        
+        .dark-mode .navbar-collapse {
+            transform: translateZ(0) !important;
+            -webkit-transform: translateZ(0) !important;
+            backface-visibility: hidden !important;
+            -webkit-backface-visibility: hidden !important;
+            background: rgb(30, 30, 30) !important;
+            background-color: rgb(30, 30, 30) !important;
+        }
+        
+        .navbar-nav .nav-item a.nav-link span {
+            transform: translateZ(0) !important;
+            -webkit-transform: translateZ(0) !important;
+            backface-visibility: hidden !important;
+            -webkit-backface-visibility: hidden !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            text-shadow: none !important;
+        }
+    }
+    
+    /* CRITICAL FIX: Disable all animations on navbar elements for iOS */
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        .navbar *,
+        .navbar-brand,
+        .navbar-nav,
+        .nav-item,
+        .nav-link,
+        .nav-link span,
+        .navbar-toggler,
+        .navbar-collapse {
+            animation: none !important;
+            -webkit-animation: none !important;
+            transition: none !important;
+            -webkit-transition: none !important;
+        }
+    }
+    
+    /* NEW FIX: Add subtle background to navbar for better visibility while keeping it light */
+    .navbar {
+        background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    .dark-mode .navbar {
+        background: linear-gradient(to bottom, rgba(30,30,30,0.8) 0%, rgba(30,30,30,0) 100%) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    /* NEW FIX: Improve navbar link visibility */
+    .navbar-light .navbar-nav .nav-link {
+        color: rgba(0,0,0,0.8) !important;
+        font-weight: 500 !important;
+    }
+    
+    .dark-mode .navbar-light .navbar-nav .nav-link {
+        color: rgba(255,255,255,0.9) !important;
+        font-weight: 500 !important;
+    }
+    
+    /* NEW FIX: Improve mobile menu appearance */
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            border-radius: 8px !important;
+            margin-top: 15px !important;
+            padding: 10px !important;
+        }
+        
+        .navbar-nav .nav-item {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .dark-mode .navbar-nav .nav-item {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .navbar-nav .nav-item:last-child {
+            border-bottom: none;
+        }
+    }
+</style>
+
+<script>
+    // CRITICAL FIX: Force navbar transparency and fix mobile menu on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Force transparent navbar
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            // Apply inline styles to ensure transparency
+            navbar.style.backgroundColor = 'transparent';
+            navbar.style.backgroundImage = 'none';
+            navbar.style.border = 'none';
+            navbar.style.boxShadow = 'none';
+        }
+        
+        // Fix mobile menu
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse) {
+            // Remove any backdrop filters
+            navbarCollapse.style.webkitBackdropFilter = 'none';
+            navbarCollapse.style.backdropFilter = 'none';
+            
+            // Set solid background color
+            if (document.body.classList.contains('dark-mode')) {
+                navbarCollapse.style.backgroundColor = 'rgb(30, 30, 30)';
+            } else {
+                navbarCollapse.style.backgroundColor = 'rgb(255, 255, 255)';
+            }
+            
+            // Remove text shadows
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-item a.nav-link span');
+            navLinks.forEach(link => {
+                link.style.textShadow = 'none';
+            });
+        }
+        
+        // Fix for iOS devices
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            document.body.classList.add('ios-device');
+            
+            // Force hardware acceleration
+            if (navbarCollapse) {
+                navbarCollapse.style.transform = 'translateZ(0)';
+                navbarCollapse.style.webkitTransform = 'translateZ(0)';
+                navbarCollapse.style.backfaceVisibility = 'hidden';
+                navbarCollapse.style.webkitBackfaceVisibility = 'hidden';
+            }
+            
+            // Force repaint
+            setTimeout(() => {
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // Trigger a reflow
+                document.body.style.display = '';
+            }, 100);
+        }
+    });
+    
+    // CRITICAL FIX: Override Headroom.js behavior to maintain transparent navbar
+    window.addEventListener('load', function() {
+        // Override Headroom classes if they're applied
+        setInterval(() => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.style.backgroundColor = 'transparent';
+                navbar.style.backgroundImage = 'none';
+                navbar.style.border = 'none';
+                navbar.style.boxShadow = 'none';
+            }
+        }, 100);
+    });
+</script>
 
 <!-- SKILLS -->
 <!-- SKILLS -->
@@ -1105,6 +1630,72 @@
 	<script src="js/jQuery.headroom.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/smoothscroll.html"></script>
+
+	<!-- CRITICAL FIX: Disable Headroom.js functionality -->
+	<script>
+		// Override jQuery.headroom plugin to prevent it from adding background to navbar
+		$(document).ready(function() {
+			// Disable headroom initialization
+			$.fn.headroom = function() {
+				// Do nothing - effectively disabling the plugin
+				return this;
+			};
+			
+			// Remove any headroom classes that might have been added
+			$('.navbar').removeClass('headroom headroom--pinned headroom--unpinned headroom--top headroom--not-top');
+			
+			// Force transparent background on navbar with subtle gradient
+			$('.navbar').css({
+				'background': 'transparent',
+				'background-image': $('body').hasClass('dark-mode') ? 
+					'linear-gradient(to bottom, rgba(30,30,30,0.8) 0%, rgba(30,30,30,0) 100%)' : 
+					'linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%)',
+				'border': 'none',
+				'box-shadow': 'none',
+				'backdrop-filter': 'none',
+				'-webkit-backdrop-filter': 'none'
+			});
+			
+			// Ensure mobile menu has solid background
+			$('.navbar-collapse').css({
+				'backdrop-filter': 'none',
+				'-webkit-backdrop-filter': 'none',
+				'text-shadow': 'none',
+				'border-radius': '8px',
+				'margin-top': '15px',
+				'padding': '10px'
+			});
+			
+			if ($('body').hasClass('dark-mode')) {
+				$('.navbar-collapse').css('background-color', 'rgb(30, 30, 30)');
+				$('.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link span').css({
+					'color': 'rgba(255,255,255,0.9)',
+					'font-weight': '500'
+				});
+				$('.navbar-nav .nav-item').css('border-bottom', '1px solid rgba(255,255,255,0.05)');
+			} else {
+				$('.navbar-collapse').css('background-color', 'rgb(255, 255, 255)');
+				$('.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link span').css({
+					'color': 'rgba(0,0,0,0.8)',
+					'font-weight': '500'
+				});
+				$('.navbar-nav .nav-item').css('border-bottom', '1px solid rgba(0,0,0,0.05)');
+			}
+			
+			// Ensure last item has no border
+			$('.navbar-nav .nav-item:last-child').css('border-bottom', 'none');
+			
+			// Remove text shadows from all navbar elements
+			$('.navbar *, .navbar-brand, .navbar-nav, .nav-item, .nav-link, .nav-link span').css('text-shadow', 'none');
+			
+			// Force repaint for iOS
+			if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+				document.body.style.display = 'none';
+				document.body.offsetHeight; // Trigger a reflow
+				document.body.style.display = '';
+			}
+		});
+	</script>
 	<script src="js/custom.js"></script>
 	<script src="js/isotpoe.js"></script>
 	<script src="js/script.js"></script>
@@ -1120,6 +1711,123 @@
 			return false
 		})
 	});
+	</script>
+	
+	<!-- iOS Detection and Fixes -->
+	<script>
+		// Detect iOS devices and apply specific fixes
+		function isIOS() {
+			return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+		}
+		
+		$(document).ready(function() {
+			// Apply iOS-specific fixes
+			if (isIOS()) {
+				$('body').addClass('ios-device');
+				
+				// Apply additional iOS-specific fixes
+				$('.navbar-nav .nav-item a.nav-link, .navbar-nav .nav-item a.nav-link span').css({
+					'text-shadow': 'none !important',
+					'transform': 'none !important',
+					'-webkit-transform': 'none !important',
+					'animation': 'none !important',
+					'-webkit-animation': 'none !important',
+					'transition': 'none !important',
+					'-webkit-transition': 'none !important',
+					'-webkit-font-smoothing': 'antialiased !important',
+					'-moz-osx-font-smoothing': 'grayscale !important',
+					'filter': 'none !important',
+					'-webkit-filter': 'none !important'
+				});
+				
+				// Disable all animations and transitions for navbar elements on iOS
+				$('.navbar *, .navbar-brand, .navbar-nav, .nav-item, .nav-link, .navbar-toggler, .navbar-collapse').css({
+					'animation': 'none !important',
+					'-webkit-animation': 'none !important',
+					'transition': 'none !important',
+					'-webkit-transition': 'none !important'
+				});
+			}
+		});
+	</script>
+	
+	<!-- CRITICAL FIX: Handle color mode toggle -->
+	<script>
+		// Override the color mode toggle functionality to ensure proper navbar styling
+		$(document).ready(function() {
+			// Add our custom click handler for color mode toggle
+			$('.color-mode').on('click', function() {
+				// Force update navbar styles after color mode toggle
+				setTimeout(function() {
+					// Force transparent background on navbar with subtle gradient
+					$('.navbar').css({
+						'background': 'transparent',
+						'background-image': $('body').hasClass('dark-mode') ? 
+							'linear-gradient(to bottom, rgba(30,30,30,0.8) 0%, rgba(30,30,30,0) 100%)' : 
+							'linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%)',
+						'border': 'none',
+						'box-shadow': 'none',
+						'backdrop-filter': 'none',
+						'-webkit-backdrop-filter': 'none'
+					});
+					
+					// Update navbar collapse background based on theme
+					if ($('body').hasClass('dark-mode')) {
+						$('.navbar-collapse').css('background-color', 'rgb(30, 30, 30)');
+						$('.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link span').css({
+							'color': 'rgba(255,255,255,0.9)',
+							'font-weight': '500'
+						});
+						$('.navbar-nav .nav-item').css('border-bottom', '1px solid rgba(255,255,255,0.05)');
+					} else {
+						$('.navbar-collapse').css('background-color', 'rgb(255, 255, 255)');
+						$('.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link span').css({
+							'color': 'rgba(0,0,0,0.8)',
+							'font-weight': '500'
+						});
+						$('.navbar-nav .nav-item').css('border-bottom', '1px solid rgba(0,0,0,0.05)');
+					}
+					
+					// Ensure last item has no border
+					$('.navbar-nav .nav-item:last-child').css('border-bottom', 'none');
+					
+					// Remove text shadows from all navbar elements
+					$('.navbar *, .navbar-brand, .navbar-nav, .nav-item, .nav-link, .nav-link span').css({
+						'text-shadow': 'none',
+						'transform': 'none',
+						'-webkit-transform': 'none',
+						'animation': 'none',
+						'-webkit-animation': 'none',
+						'transition': 'color 0.3s ease',
+						'-webkit-transition': 'color 0.3s ease',
+						'-webkit-font-smoothing': 'antialiased',
+						'-moz-osx-font-smoothing': 'grayscale'
+					});
+					
+					// Force repaint for iOS
+					if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+						document.body.style.display = 'none';
+						document.body.offsetHeight; // Trigger a reflow
+						document.body.style.display = '';
+					}
+				}, 50);
+			});
+			
+			// Also run once on page load
+			if ($('body').hasClass('dark-mode')) {
+				$('.navbar-collapse').css('background-color', 'rgb(30, 30, 30)');
+				$('.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link span').css({
+					'color': 'rgba(255,255,255,0.9)',
+					'font-weight': '500'
+				});
+			} else {
+				$('.navbar-collapse').css('background-color', 'rgb(255, 255, 255)');
+				$('.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link span').css({
+					'color': 'rgba(0,0,0,0.8)',
+					'font-weight': '500'
+				});
+			}
+		});
 	</script>
 </body>
 
@@ -1274,7 +1982,7 @@
 		display: block; /* Makes sure label is on its own line */
 		font-size: 14px;
 		font-weight: bold;
-		color: var(--label-color, #000); /* Default to black text */
+		color: var(--label-color);
 		margin-top: 8px; /* Adds space between the icon and the label */
 		transition: color 0.3s ease;
 	}
