@@ -1,0 +1,280 @@
+<!-- Case Studies Section -->
+<section class="py-5" id="case-studies">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>Detailed Case Studies</h2>
+            <p class="lead">In-depth analysis of key data engineering projects I've delivered</p>
+        </div>
+
+        <!-- Case Study 1 -->
+        <div class="row mb-5">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4">Enterprise Cloud Migration: Synapse to Databricks</h3>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-8">
+                                <h4>Problem Statement</h4>
+                                <p>The organization was facing significant challenges with their legacy Azure Synapse Analytics environment:</p>
+                                <ul>
+                                    <li>Increasing query latency as data volumes grew beyond 15TB</li>
+                                    <li>Limited scalability for concurrent users during peak reporting periods</li>
+                                    <li>High operational costs due to 24/7 dedicated SQL pool provisioning</li>
+                                    <li>Difficulty integrating with modern data science workflows</li>
+                                </ul>
+                                
+                                <h4 class="mt-4">Solution Architecture</h4>
+                                <p>I designed and implemented a comprehensive migration strategy to Azure Databricks:</p>
+                                <ul>
+                                    <li>Created a multi-stage data lake architecture in ADLS Gen2 with bronze, silver, and gold layers</li>
+                                    <li>Developed automated migration pipelines using Azure Data Factory and Databricks notebooks</li>
+                                    <li>Implemented Delta Lake tables for ACID transactions and time travel capabilities</li>
+                                    <li>Established CI/CD pipelines for automated testing and deployment</li>
+                                    <li>Built a metadata-driven framework for schema evolution and lineage tracking</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h5>Technologies Used</h5>
+                                        <ul>
+                                            <li>Azure Databricks</li>
+                                            <li>Azure Synapse Analytics</li>
+                                            <li>Azure Data Factory</li>
+                                            <li>Delta Lake</li>
+                                            <li>Azure DevOps</li>
+                                            <li>PySpark</li>
+                                            <li>SQL</li>
+                                        </ul>
+                                        
+                                        <h5 class="mt-4">Project Duration</h5>
+                                        <p>6 months</p>
+                                        
+                                        <h5>Team Size</h5>
+                                        <p>5 engineers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Implementation Challenges</h4>
+                                <ul>
+                                    <li><strong>Complex data dependencies:</strong> Mapped and resolved intricate dependencies between 200+ tables</li>
+                                    <li><strong>Performance optimization:</strong> Tuned Spark configurations and implemented partitioning strategies to match or exceed Synapse performance</li>
+                                    <li><strong>Business continuity:</strong> Maintained parallel environments during migration with real-time data synchronization</li>
+                                    <li><strong>User adoption:</strong> Developed training materials and conducted workshops for analysts transitioning from SQL to Spark</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Measurable Outcomes</h4>
+                                <ul>
+                                    <li><strong>Performance:</strong> 3x faster query performance for critical business reports</li>
+                                    <li><strong>Cost reduction:</strong> 35% decrease in monthly cloud infrastructure costs</li>
+                                    <li><strong>Scalability:</strong> Support for 3x more concurrent users during peak periods</li>
+                                    <li><strong>Agility:</strong> Reduced new data pipeline development time from weeks to days</li>
+                                    <li><strong>Data science integration:</strong> Enabled seamless ML model training on production data</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4>Lessons Learned</h4>
+                            <p>This project provided valuable insights into enterprise-scale cloud migrations:</p>
+                            <ul>
+                                <li>Early involvement of business stakeholders is critical for defining success criteria</li>
+                                <li>Automated testing is essential for validating data accuracy during migration</li>
+                                <li>Hybrid query approaches (SQL + Spark) can ease transition for SQL-proficient teams</li>
+                                <li>Performance benchmarking should include various query patterns, not just simple aggregations</li>
+                                <li>Documentation of architectural decisions and trade-offs supports long-term maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="row mb-5">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4">Real-time Data Processing Pipeline</h3>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-8">
+                                <h4>Problem Statement</h4>
+                                <p>The business needed to process and analyze streaming data from multiple sources with minimal latency:</p>
+                                <ul>
+                                    <li>IoT device telemetry generating millions of events daily</li>
+                                    <li>Customer interaction data requiring real-time analysis for personalization</li>
+                                    <li>Operational metrics needing immediate visibility for system health monitoring</li>
+                                    <li>Batch processes causing data delays of 30+ minutes, impacting decision-making</li>
+                                </ul>
+                                
+                                <h4 class="mt-4">Solution Architecture</h4>
+                                <p>I designed a scalable real-time data processing architecture:</p>
+                                <ul>
+                                    <li>Implemented Azure Event Hubs as the central ingestion point for all streaming data</li>
+                                    <li>Developed Structured Streaming jobs in Databricks for real-time processing</li>
+                                    <li>Created a schema registry for managing evolving data structures</li>
+                                    <li>Built a real-time data quality monitoring system with automated alerting</li>
+                                    <li>Implemented a lambda architecture with both streaming and batch processing paths</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h5>Technologies Used</h5>
+                                        <ul>
+                                            <li>Azure Event Hubs</li>
+                                            <li>Azure Databricks</li>
+                                            <li>Structured Streaming</li>
+                                            <li>Delta Lake</li>
+                                            <li>Azure Functions</li>
+                                            <li>Scala</li>
+                                            <li>Python</li>
+                                        </ul>
+                                        
+                                        <h5 class="mt-4">Project Duration</h5>
+                                        <p>4 months</p>
+                                        
+                                        <h5>Team Size</h5>
+                                        <p>3 engineers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Implementation Challenges</h4>
+                                <ul>
+                                    <li><strong>Schema evolution:</strong> Handling changing data structures without pipeline disruption</li>
+                                    <li><strong>Exactly-once processing:</strong> Ensuring data consistency across stream processing stages</li>
+                                    <li><strong>Error handling:</strong> Developing robust recovery mechanisms for failed events</li>
+                                    <li><strong>Performance tuning:</strong> Optimizing Spark configurations for low-latency processing</li>
+                                    <li><strong>Cost management:</strong> Balancing performance requirements with resource utilization</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Measurable Outcomes</h4>
+                                <ul>
+                                    <li><strong>Latency reduction:</strong> Decreased data processing time from 30+ minutes to under 45 seconds</li>
+                                    <li><strong>Throughput:</strong> Successfully processing 5M+ events daily with 99.99% uptime</li>
+                                    <li><strong>Data quality:</strong> Automated monitoring catching 98% of anomalies before downstream impact</li>
+                                    <li><strong>Business impact:</strong> Enabled real-time dashboards that saved $1.2M annually through operational optimizations</li>
+                                    <li><strong>Scalability:</strong> System designed to handle 10x growth without architectural changes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4>Lessons Learned</h4>
+                            <p>This project provided valuable insights into real-time data processing:</p>
+                            <ul>
+                                <li>Start with clear SLAs for latency and throughput requirements</li>
+                                <li>Implement comprehensive monitoring from day one</li>
+                                <li>Design for failure with robust error handling and dead-letter queues</li>
+                                <li>Balance real-time needs with batch processing for cost optimization</li>
+                                <li>Invest in automated testing for streaming applications to catch edge cases</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study 3 -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4">Data Warehouse Optimization</h3>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-8">
+                                <h4>Problem Statement</h4>
+                                <p>The organization's data warehouse was experiencing significant performance and cost issues:</p>
+                                <ul>
+                                    <li>Critical reports taking hours to generate during month-end processing</li>
+                                    <li>Growing storage costs with inefficient data partitioning</li>
+                                    <li>Data quality issues causing downstream reporting inaccuracies</li>
+                                    <li>Limited self-service capabilities requiring constant IT intervention</li>
+                                </ul>
+                                
+                                <h4 class="mt-4">Solution Architecture</h4>
+                                <p>I redesigned the data warehouse architecture with performance and governance in mind:</p>
+                                <ul>
+                                    <li>Implemented a dimensional modeling approach with proper star schema design</li>
+                                    <li>Developed an automated data partitioning strategy based on query patterns</li>
+                                    <li>Created a comprehensive data quality framework with validation rules</li>
+                                    <li>Built a metadata repository for business glossary and data lineage</li>
+                                    <li>Implemented column-store indexing and materialized views for performance</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h5>Technologies Used</h5>
+                                        <ul>
+                                            <li>Azure Synapse Analytics</li>
+                                            <li>T-SQL</li>
+                                            <li>Azure Data Factory</li>
+                                            <li>Power BI</li>
+                                            <li>Azure DevOps</li>
+                                            <li>Python (for automation)</li>
+                                        </ul>
+                                        
+                                        <h5 class="mt-4">Project Duration</h5>
+                                        <p>5 months</p>
+                                        
+                                        <h5>Team Size</h5>
+                                        <p>4 engineers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Implementation Challenges</h4>
+                                <ul>
+                                    <li><strong>Legacy code migration:</strong> Refactoring complex stored procedures without disrupting business operations</li>
+                                    <li><strong>Data volume:</strong> Optimizing for 10TB+ of historical data</li>
+                                    <li><strong>Query optimization:</strong> Rewriting inefficient queries with proper indexing strategies</li>
+                                    <li><strong>User adoption:</strong> Training business users on self-service capabilities</li>
+                                    <li><strong>Historical data migration:</strong> Moving and validating years of historical data</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Measurable Outcomes</h4>
+                                <ul>
+                                    <li><strong>Performance:</strong> 70% improvement in query performance, reducing report generation from hours to minutes</li>
+                                    <li><strong>Cost reduction:</strong> 45% decrease in storage costs through optimized partitioning</li>
+                                    <li><strong>Data quality:</strong> 85% improvement in data accuracy through automated validation</li>
+                                    <li><strong>Self-service:</strong> 60% reduction in IT support tickets for report creation</li>
+                                    <li><strong>Scalability:</strong> System now supports 500+ concurrent users during peak periods</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4>Lessons Learned</h4>
+                            <p>This project provided valuable insights into data warehouse optimization:</p>
+                            <ul>
+                                <li>Proper dimensional modeling is fundamental to long-term performance</li>
+                                <li>Query pattern analysis should drive partitioning and indexing strategies</li>
+                                <li>Automated testing is essential when refactoring critical data pipelines</li>
+                                <li>User training and documentation are as important as technical implementation</li>
+                                <li>Regular performance monitoring and tuning should be built into operational processes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

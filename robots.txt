@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saurav-singh-sisodiya.github.io/sitemap.xml 
